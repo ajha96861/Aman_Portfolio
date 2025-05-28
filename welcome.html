@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    div {
+      padding: 20px;
+      border: 2px solid black;
+      border-radius: 1rem;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Thank You for Registering!</h1>
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>Message:</strong> <span id="mess"></span></p>
+  </div>
+
+  <script>
+    const queryParams = new URLSearchParams(window.location.search);
+    document.getElementById('name').textContent = queryParams.get('name');
+    document.getElementById('email').textContent = queryParams.get('email');
+    document.getElementById('mess').textContent = queryParams.get('message');
+  </script>
+</body>
+</html>

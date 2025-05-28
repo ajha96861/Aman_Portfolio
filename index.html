@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+            /* Enables smooth scrolling */
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #8360c3, #2ebf91);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .header a {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar ul li {
+            list-style: none;
+        }
+
+        .navbar ul li a {
+            font-size: 20px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: black;
+        }
+
+        main {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Section Styling */
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            /* Allow sections to adjust dynamically */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        .portfolio h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio p {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        a.view-more {
+            display: inline-block;
+            padding: 10px 15px;
+            background: burlywood;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        a.view-more:hover {
+            background: brown;
+        }
+
+
+        /* Mobile Optimization for 480px */
+        @media (max-width: 480px) {
+            .header {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .header a {
+                font-size: 24px;
+            }
+
+            .navbar ul {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .navbar ul li a {
+                font-size: 15px;
+            }
+
+            .portfolio h1 {
+                font-size: 48px;
+            }
+
+            .portfolio p {
+                font-size: 24px;
+            }
+
+            a.view-more {
+                font-size: 24px;
+                padding: 8px 12px;
+            }
+        }
+
+        /* General Styling */
+        .about {
+            text-align: center;
+            background: linear-gradient(to right, #000000, #434343);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Spacing between h1 and content */
+        .about h1 {
+            font-size: 36px;
+            margin-bottom: 100px;
+            font-weight: bold;
+            color: white;
+
+        }
+
+        /* About Content Layout */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Image Styling */
+        .about figure {
+            margin: 0;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Text Content Styling */
+        .text-content {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .text-content h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: gold;
+        }
+
+        .text-content h2 span {
+            color: brown;
+        }
+
+        .text-content h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: darkorchid;
+        }
+
+        .text-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: white;
+        }
+
+        @media (max-width: 480px) {
+            .about {
+                padding: 15px;
+            }
+
+            .about h1 {
+                font-size: 24px;
+                margin-bottom: 100px;
+                /* Adjusted spacing for small screens */
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 15px;
+            }
+
+            .text-content {
+                padding: 10px;
+            }
+
+            .text-content h2 {
+                font-size: 20px;
+            }
+
+            .text-content h3 {
+                font-size: 20px;
+            }
+
+            .text-content p {
+                font-size: 13px;
+                padding: 0 5px;
+            }
+        }
+
+        section.project {
+            text-align: center;
+            padding: 30px 10px;
+            background: linear-gradient(to right, #8e0e00, #1f1c18);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        section h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        /* Card Container */
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Individual Card */
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(5px);
+        }
+
+        /* Image Styling */
+        .card figure {
+            margin: 0;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Project Description */
+        .card article {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Learn More Button */
+        .card a {
+            display: block;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .card a:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 30px 10px;
+                /* Reduce padding */
+            }
+
+            section h1 {
+                font-size: 24px;
+                /* Make heading smaller */
+            }
+
+            .card img {
+                height: 250px;
+                /* Adjust image size */
+            }
+
+            .card article {
+                font-size: 14px;
+                /* Slightly smaller text */
+                line-height: 1.5;
+            }
+        }
+
+        /* Section Styling */
+        section.contact {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #606c88, #3f4c6b);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        /* Contact Title */
+        section h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Form */
+        form {
+            width: 70%;
+            background: #fff;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        /* Label Styling */
+        form label {
+            font-weight: 400;
+            margin-bottom: 10px;
+            text-align: left;
+            display: block;
+            color: black;
+        }
+
+        /* Input Fields */
+        form input,
+        form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Input Focus Effect */
+        form input:focus,
+        form textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+            outline: none;
+        }
+
+        /* Submit Button */
+        form button {
+            background: #5a0ee7;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        form button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 20px 10px;
+            }
+
+            section h1 {
+                font-size: 24px;
+            }
+
+            form {
+                width: 100%;
+                padding: 15px;
+            }
+
+            form input,
+            form textarea {
+
+                font-size: 14px;
+                padding: 12px;
+                width: 100%;
+            }
+
+            form button {
+                font-size: 14px;
+                padding: 24px;
+                width: 100%;
+            }
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        /* Social Icons Styling */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00bfff;
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .footer-content p {
+                font-size: 14px;
+            }
+
+            .social-icons a {
+                font-size: 18px;
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#">My Portfolio</a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="portfolio">
+            <h1>Welcome to my Portfolio</h1>
+            <article>
+                <p>Hi, I am a fresher. I have experience in designing websites.</p>
+            </article>
+            <a href="#about" class="view-more">View More</a>
+        </section>
+        <section id="about" class="about">
+            <h1>About Me</h1>
+            <div class="about-content">
+                <figure>
+                    <img src="Aman.jpg" alt="Aman">
+                </figure>
+                <div class="text-content">
+                    <h2>Aman <span>Sahu</span></h2>
+                    <h3>WEB <span>DEVELOPER</span></h3>
+                    <p>
+                        Highly motivated and enthusiastic Computer Science graduate with a B.Sc. in Computer Science
+                        from
+                        Nagindas Khandwala College, Mumbai. Passionate about front-end development, proficient in HTML
+                        and CSS,
+                        with a strong foundation in data structures, algorithms, and software development methodologies.
+                        Adept at problem-solving, analytical thinking, and eager to apply technical knowledge to
+                        real-world projects.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="project">
+            <h1>Projects</h1>
+            <div class="cards-container">
+                <div class="card">
+                    <figure>
+                        <img src="img.webp" alt="Project 1">
+                    </figure>
+                    <article>
+                        <p>Card</p>
+                    </article>
+                    <a href="AmanPortfolio.html">Learn More</a>
+                </div>
+
+                <div class="card">
+                    <figure>
+                        <img src="img.webp" alt="Project 2">
+                    </figure>
+                    <article>
+                        <p>Cardflip</p>
+                    </article>
+                    <a href="cardflip.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <figure>
+                        <img src="img.webp" alt="Project 3">
+                    </figure>
+                    <article>
+                        <p>Cards</p>
+                    </article>
+                    <a href="cards.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h1>Contact</h1>
+            <form action="welcome.html" method="get" onsubmit="return validate()"  autocomplete="off">
+                <label for="name">Name
+                    <span></span>
+                </label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email
+                    <span></span>
+                </label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Message
+                    <span></span>
+                </label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Aman Sahu. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://www.github.com/Amansahu124" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aman-sahu-41512b33b" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aman_sahu_124/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        function validate(event) {
+            event.preventDefault(); // Prevent form submission
+    
+            let name = document.querySelectorAll("name").value.trim();
+            let email = document.querySelectorAll("email").value.trim();
+            let message = document.querySelectorAll("message").value.trim();
+    
+            let valid = true;
+    
+            if (name === "" || !isNaN(name)) {
+                alert("Please enter a valid name.");
+                valid = false;
+            }
+    
+            if (email === "" || !email.includes("@")) {
+                alert("Please enter a valid email.");
+                valid = false;
+            }
+    
+            if (message === "") {
+                alert("Message cannot be empty.");
+                valid = false;
+            }
+    
+            if (valid) {
+                document.querySelector("form").submit(); // Proceed to welcome.html
+            }
+        }
+    </script>
+     
+</body>
+
+</html>

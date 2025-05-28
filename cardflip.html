@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardflip</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: arial;
+        }
+        section{
+            width:100%;
+            min-height: 100vh;
+            background: linear-gradient(rgb(255, 127, 253),rgb(182, 127, 127));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:20px;
+        }
+        section .cards{
+            width: 300px;
+            height: 400px;
+            /* background-color: black; */
+            border-radius: 20px;
+            position: relative;
+            /* border: 10px solid blue; */
+        }
+        div.cards  .card{
+            width:100%;
+            height:100%;
+            background-color: black;
+            border-radius: 10px;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: all 1s ease;
+            backface-visibility: hidden;
+            border: 10px solid blue;
+        }
+        div.cards .front{
+            background-image: url(Nature.jpeg);
+            transform: rotateY(0deg);
+        }
+        div.cards .back{
+            background-image: url(panda.jpeg);
+            transform: rotateY(-180deg);
+            
+        }
+        div.cards:hover .front{
+            transform: rotateY(180deg);
+        }
+        div.cards:hover .back{
+            transform: rotateY(0deg);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <div class="cards">
+                <div class="card front"></div>
+                <div class="card back"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
